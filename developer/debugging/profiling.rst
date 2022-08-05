@@ -103,7 +103,7 @@ Example
 
 This example is from ``qubes-manager`` (``qubesmanager/main.py``).
 
-.. figure:: //attachment/doc/update_table-20140424-170010.svg
+.. figure:: /attachment/doc/update_table-20140424-170010.svg
    :alt: “update_table-20140424-170010.svg”
 
    “update_table-20140424-170010.svg”

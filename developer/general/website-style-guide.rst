@@ -5,8 +5,7 @@ Website style guide
 This page explains the standards we follow for building and maintaining
 the website. Please follow these guidelines and conventions when
 modifying the website. For the standards governing the documentation in
-particular, please see the `documentation style
-guide </doc/documentation-style-guide/>`__.
+particular, please see the :doc:`documentation style guide </developer/general/documentation-style-guide>`.
 
 Coding conventions
 ==================
