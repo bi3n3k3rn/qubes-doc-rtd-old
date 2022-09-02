@@ -36,10 +36,7 @@ Fully updating your Qubes OS system means updating:
 - [templates](/doc/glossary/#template)
 - [standalones](/doc/glossary/#standalone) (if you have any)
 
-You can accomplish this using the **Qubes Update** tool. (**Warning:** This
-tool is currently affected by bug
-[#6585](https://github.com/QubesOS/qubes-issues/issues/6585). See below for a
-mitigation.)
+You can accomplish this using the **Qubes Update** tool.
 
 [![Qubes Update](/attachment/doc/r4.0-software-update.png)](/attachment/doc/r4.0-software-update.png)
 
@@ -58,42 +55,14 @@ desired items from the list and clicking "Next."
 
 <div class="alert alert-danger" role="alert">
   <i class="fa fa-exclamation-triangle"></i>
-  <b>Warning:</b> Updating <em>exclusively</em> with direct commands such as
+  <b>Warning:</b> Updating with direct commands such as
   <code>qubes-dom0-update</code>, <code>dnf update</code>, and <code>apt
   update</code> is <b>not</b> recommended, since these bypass built-in Qubes OS
-  update security measures. Instead, we strongly recommend <em>first</em> using
-  the <b>Qubes Update</b> tool or its command-line equivalents, as described
-  below, <em>then</em> using the direct commands for confirmation (see <a
-  href="https://github.com/QubesOS/qubes-issues/issues/6585">#6585</a> and <a
-  href="https://github.com/QubesOS/qubes-posts/pull/79">PR #79</a>). (By
+  update security measures. Instead, we strongly recommend using the <b>Qubes
+  Update</b> tool or its command-line equivalents, as described below. (By
   contrast, <a href="/doc/how-to-install-software/">installing</a> packages
   using direct package manager commands is fine.)
 </div>
-
-As a temporary mitigation until
-[#6585](https://github.com/QubesOS/qubes-issues/issues/6585) is fixed, the
-following update sequence is recommended (see
-[PR #79](https://github.com/QubesOS/qubes-posts/pull/79)
-for explanation and discussion):
-
-1. Update dom0 with Salt.
-2. Update dom0 by direct command.
-3. Update templates and standalones with Salt.
-4. Update templates and standalones by direct commands.
-
-Example using only the command line (all commands with `sudo` or as root):
-
-1. In dom0: `qubesctl --show-output state.sls update.qubes-dom0`
-2. In dom0: `qubes-dom0-update --clean -y`
-3. In dom0: `qubesctl --show-output --skip-dom0 --templates state.sls
-   update.qubes-vm`
-4. In dom0: `qubesctl --show-output --skip-dom0 --standalones state.sls
-   update.qubes-vm`
-5. In every Fedora template and standalone: `dnf -y --refresh upgrade`
-6. In every Debian template and standalone: `apt-get clean && apt-get -y update
-   && apt-get -y dist-upgrade && apt-get clean`
-
-### Qubes 4.0
 
 Advanced users may wish to perform updates via the command-line interface. The
 recommended way to do this is by using the command-line equivalents of the
@@ -103,17 +72,12 @@ There are two Salt formulae and two corresponding `qubesctl` commands:
  - [`update.qubes-dom0`](/doc/salt/#updatequbes-dom0)
  - [`update.qubes-vm`](/doc/salt/#updatequbes-vm)
 
+In your update qube, a terminal window opens that displays the progress of
+operations and output as it is logged. At the end of the process, logs are sent
+back to dom0. You answer any yes/no prompts in your dom0 terminal window.
+
 Advanced users may also be interested in learning [how to enable the
 testing repos](/doc/testing/).
-
-### Qubes 4.1
-
-The recommendation, commands, and Salt formulae from 4.0 remain the same.
-
-Command-line updates in dom0 behave differently in 4.1. In your update qube, a
-terminal window opens that displays the progress of operations and output as it
-is logged. At the end of the process, logs are sent back to dom0. You answer any
-yes/no prompts in your dom0 terminal window.
 
 ## Upgrading to avoid EOL
 
