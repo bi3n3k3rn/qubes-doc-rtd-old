@@ -8,6 +8,7 @@ redirect_from:
 - /wiki/SystemDoc/
 redirect_to:
 - /doc/#developer-documentation
+- https://current-qubes-docrtd.readthedocs.io/en/latest/index.html#developer-documentation
 ref: 62
 title: System documentation
 ---

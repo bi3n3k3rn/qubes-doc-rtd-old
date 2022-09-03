@@ -6,6 +6,7 @@ redirect_from:
 - /en/doc/license/
 - /doc/QubesLicensing/
 - /wiki/QubesLicensing/
+redirect_to: https://current-qubes-docrtd.readthedocs.io/en/latest/developer/code/license.html
 ref: 52
 title: Software license
 ---
