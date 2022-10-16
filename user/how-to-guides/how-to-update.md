@@ -51,6 +51,21 @@ you can use this tool to check for updates manually at any time by selecting
 "Enable updates for qubes without known available updates," then selecting all
 desired items from the list and clicking "Next."
 
+<div class="alert alert-info" role="alert">
+  <i class="fa fa-question-circle"></i>
+  For information about how templates download updates, please see <a
+  href="/doc/how-to-install-software/#why-dont-templates-have-network-access">Why
+  don’t templates have network access?</a> and the <a
+  href="/doc/how-to-install-software/#updates-proxy">Updates proxy</a>.
+</div>
+
+By default, most qubes that are connected to the internet will periodically
+check for updates for their parent templates. If updates are available, you
+will receive a notification as described above. However, if you have any
+templates that do *not* have any online child qubes, you will *not* receive
+update notifications for them. Therefore, you should regularly update such
+templates manually instead.
+
 ## Command-line interface
 
 <div class="alert alert-danger" role="alert">
