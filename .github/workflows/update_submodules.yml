@@ -12,7 +12,6 @@ jobs:
           submodules: recursive
       - name: Update module
         run: |
-          #git submodule update --init --recursive --checkout -f --remote --merge -- "${{github.event.client_payload.module}}"
           git submodule foreach git pull origin test-github-action
           git config --global user.name "GitHub Action"
           git config --global user.email "noreply@github.com"
