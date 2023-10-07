@@ -1,0 +1,24 @@
+name: Update on Submodule translted Update
+  on:
+    repository_dispatch:
+      types: [submodule_update]
+  jobs:
+    update:
+      runs-on: ubuntu-latest
+      steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
+      - name: Update submodule translated to latest commit
+        run: |
+          cd _translated
+          git checkout test-github-action
+          git pull origin test-github-action
+          cd ..
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -am "Update submodule"
+          git push
