@@ -15,7 +15,7 @@ jobs:
           #git config pull.rebase false
           git config --global user.name "GitHub Action"
           git config --global user.email "noreply@github.com"
-          git submodule foreach git pull origin weblate-translations --rebase
+          git submodule foreach git pull origin weblate-translations --no-rebase
           #git submodule foreach git pull origin weblate-translations --no-rebase --allow-unrelated-histories
           #git submodule foreach git merge origin origin/weblate-translations --allow-unrelated-histories
           git commit -am "deploy: ${{github.event.client_payload.module}} - ${{github.event.client_payload.sha}}"
